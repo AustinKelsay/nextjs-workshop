@@ -1,20 +1,17 @@
-import React from 'react';
+"use client";
 import Link from 'next/link';
-import posts from '../data/posts';
+import Posts from '@/components/Posts';
 
 export default function Page() {
   return (
     <div>
       <h1 className="text-3xl font-bold underline mb-4">Simple Blog</h1>
-      <ul>
-        {posts.map(post => (
-          <li key={post.slug} className="mb-3">
-            <Link className="text-blue-600 visited:text-purple-600" href={`/posts/${post.slug}`}>
-              {post.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <div className="mb-6">
+        <Link href="/posts/new" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Create Post
+        </Link>
+      </div>
+      <Posts />
     </div>
   );
 }
